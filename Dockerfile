@@ -1,5 +1,5 @@
 FROM phusion/baseimage:0.9.11
-MAINTAINER binhex
+MAINTAINER eroz (rsanch1@gmail.com)
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN locale-gen en_US en_US.UTF-8
@@ -34,11 +34,11 @@ ADD https://github.com/binhex/moviegrabber/archive/master.zip /opt/moviegrabber/
 RUN unzip /opt/moviegrabber/moviegrabber-master.zip -d /opt/moviegrabber/
 
 # move unzipped contents back to moviegrabber root
-#RUN mv /opt/moviegrabber/moviegrabber-master/ /opt/moviegrabber/
+RUN mv /opt/moviegrabber/moviegrabber-master/* /opt/moviegrabber/
 
 # remove files and folders
 RUN rm /opt/moviegrabber/moviegrabber-master.zip
-#RUN rm -rf /opt/moviegrabber/moviegrabber-master/
+RUN rm -rf /opt/moviegrabber/moviegrabber-master/
 
 # docker settings
 #################
@@ -46,11 +46,11 @@ RUN rm /opt/moviegrabber/moviegrabber-master.zip
 # map /config to host defined config path (used to store configuration from app)
 VOLUME ['/config']
 
-# map /data to host defined data path (used to store data from app)
-VOLUME ['/data']
+# map /downloads to host defined download path (used to store data from app)
+VOLUME ['/downloads']
 
-# map /media to host defined media path (used to read/write to media library)
-VOLUME ['/media']
+# map /movies to host defined movie path (used to read/write to media library)
+VOLUME ['/movies']
 
 # expose port for http
 EXPOSE 9191
