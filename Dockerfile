@@ -19,7 +19,7 @@ RUN apt-get update
 RUN apt-get -y upgrade
 RUN apt-get install unzip
 
-RUN apt-get install -qy python
+RUN apt-get install -qy python sqlite wget pyopenssl
 
 # install application
 #####################
