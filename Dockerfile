@@ -28,17 +28,17 @@ RUN apt-get install -qy wget python
 RUN mkdir -p /opt/moviegrabber
 
 # download zip from github - url zip name is different to destination
-ADD https://github.com/binhex/moviegrabber/archive/master.zip /opt/moviegrabber/moviegrabber-master.zip
+ADD http://sourceforge.net/projects/moviegrabber/files/beta/moviegrabber-src-2.2.0.b9.zip /opt/moviegrabber/moviegrabber-b9.zip
 
 # unzip to folder
-RUN unzip /opt/moviegrabber/moviegrabber-master.zip -d /opt/moviegrabber/
+RUN unzip /opt/moviegrabber/moviegrabber-b9.zip -d /opt/moviegrabber/
 
 # move unzipped contents back to moviegrabber root
-RUN mv /opt/moviegrabber/moviegrabber-master/* /opt/moviegrabber/
+RUN mv /opt/moviegrabber/moviegrabber-b9/* /opt/moviegrabber/
 
 # remove files and folders
-RUN rm /opt/moviegrabber/moviegrabber-master.zip
-RUN rm -rf /opt/moviegrabber/moviegrabber-master/
+RUN rm /opt/moviegrabber/moviegrabber-b9.zip
+RUN rm -rf /opt/moviegrabber/moviegrabber-b9/
 
 # docker settings
 #################
