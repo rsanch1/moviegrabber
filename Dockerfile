@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND noninteractive
 # Set correct environment variables.
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
-ENV HOME /root
+#ENV HOME /root
 
 # set sane localeRUN locale-gen en_US en_US.UTF-8
 RUN locale-gen en_US.UTF-8
